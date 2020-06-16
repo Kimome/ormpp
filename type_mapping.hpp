@@ -3,7 +3,7 @@
 //
 #ifdef _MSC_VER
 #ifdef ORMPP_ENABLE_MYSQL
-#include <include/mysql.h>
+#include <mysql/mysql.h>
 #endif
 #else
 #ifdef ORMPP_ENABLE_MYSQL
@@ -73,8 +73,7 @@ namespace ormpp{
 		inline auto type_to_name(identity<std::string>) noexcept { return "TEXT"sv; }
 		template<size_t N>
 		inline constexpr auto type_to_name(identity<std::array<char, N>>) noexcept {
-			std::string s = "varchar(" + std::to_string(N) + ")";
-			return s;
+			return  "varchar(" + std::to_string(N) + ")";
 		}
     }
 #endif

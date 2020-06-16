@@ -94,12 +94,7 @@ namespace ormpp{
 
             in.read(str.data(), len);
 
-            bool r = iguana::json::from_json(t, str.data(), len);
-            if (!r) {
-                return false;
-            }
-
-            return true;
+            return iguana::json::from_json(t, str.data(), len);
         }
 
         template<typename T, typename U>
